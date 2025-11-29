@@ -1,0 +1,207 @@
+/* 전체 폰트 & 배경 */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans KR", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  background-color: #f5f5f5;
+}
+
+/* A4 느낌의 박스 */
+.page {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 40px 48px;
+  background: #ffffff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+/* 헤더 */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 2px solid #111;
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+}
+.sub-title {
+  margin: 0;
+  color: #999;
+  font-size: 18px;
+}
+.main-title {
+  margin: 4px 0 0;
+  font-size: 36px;
+  letter-spacing: 2px;
+}
+.profile-photo img {
+  width: 110px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* 네비게이션 */
+.nav {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.nav a {
+  text-decoration: none;
+  color: #555;
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid #ddd;
+}
+.nav a:hover {
+  background-color: #111;
+  color: #fff;
+}
+
+/* 섹션 공통 */
+.section {
+  margin-bottom: 40px;
+}
+.section h2 {
+  font-size: 24px;
+  border-bottom: 2px solid #111;
+  padding-bottom: 6px;
+  margin-bottom: 16px;
+}
+.section h3 {
+  font-size: 18px;
+  margin: 24px 0 8px;
+}
+
+/* 표 스타일 */
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.info-table th,
+.info-table td {
+  border-bottom: 1px solid #ddd;
+  padding: 8px 10px;
+  vertical-align: top;
+}
+.info-table th {
+  width: 120px;
+  text-align: left;
+  background-color: #fafafa;
+  font-weight: 600;
+}
+
+/* 카드형 박스 (자소서·포트폴리오용) */
+.card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px 18px;
+  margin-bottom: 16px;
+  background-color: #fafafa;
+}
+.card h3 {
+  margin-top: 0;
+}
+.card p {
+  margin: 6px 0;
+  line-height: 1.6;
+}
+.card ul {
+  margin: 8px 0 0 18px;
+  padding: 0;
+}
+
+/* 포트폴리오 그리드 */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+.tag {
+  font-size: 12px;
+  color: #777;
+}
+.btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 10px;
+  font-size: 13px;
+  text-decoration: none;
+  border-radius: 4px;
+  border: 1px solid #333;
+  color: #333;
+}
+.btn:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+/* 푸터 */
+.footer {
+  margin-top: 24px;
+  border-top: 1px solid #ddd;
+  padding-top: 12px;
+  font-size: 12px;
+  color: #777;
+  text-align: center;
+}
+
+/* 반응형 (모바일에서 여백 줄이기) */
+@media (max-width: 640px) {
+  .page {
+    margin: 0;
+    padding: 20px 16px;
+    box-shadow: none;
+    border-radius: 0;
+  }
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
+
+/* 화면에서 보이는 PDF 저장 버튼 */
+.print-btn {
+  position: fixed;
+  top: 20px;
+  right: 40px;
+  z-index: 1000;
+  padding: 8px 14px;
+  background: #111;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+.print-btn:hover {
+  background: #444;
+}
+
+/* 인쇄(PDF 저장)할 때 화면용 버튼/배경 없애기 */
+@media print {
+  .print-btn,
+  .download-btn {     /* 전에 만들었던 PDF 다운로드 버튼도 같이 숨김 */
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+  }
+
+  .page {
+    box-shadow: none;
+    margin: 0;
+    padding: 20px 32px;
+    max-width: 100%;
+  }
+}
